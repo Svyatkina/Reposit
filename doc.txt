@@ -1,0 +1,2 @@
+
+{1: {'pizza': 'ְּ׀ְֳ׀ְָׂ', 'count': 2, 'size': 'S'}, 2: {'pizza': 'ְְֲֳֹׁÊְß', 'count': 2, 'size': 'M'}, 'adress': {'לסד'}, 'contact': {'מכÿ'}, 'date': {'חאגענא'}}{1: {'pizza': 'ֵֵֿֿֿ׀־ָֽ', 'count': 3, 'size': 'S'}, 'adress': {'צנב'}, 'contact': {'03'}, 'date': {'סודמהםÿ'}}
