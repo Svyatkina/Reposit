@@ -60,9 +60,9 @@ with open('taskу.txt','r') as f:
 tkinter.Label(root, text = k.get(), borderwidth = 8).grid(row = 0,column = 5,rowspan = 10)
 
 
-class Alarm(threading.Thread):
+class DataN(threading.Thread):
     def __init__(self, hours, minutes, day, mounth, year,text):
-        super(Alarm, self).__init__()
+        super(DataN, self).__init__()
         self.hours = hours
         self.minutes = minutes
         self.day = day
@@ -98,21 +98,24 @@ tkinter.Label(root, text = "Установите время:",borderwidth = 8,fg
 tkinter.Label(root, text = "Установите дату:" ,borderwidth = 8,fg="blue").grid(row= 8,column= 2,columnspan= 3)
 tkinter.Label(root, text = "О чем нужно напомнить:" ,borderwidth = 8,fg="blue").grid(row= 10,column= 0,columnspan= 2)
 
-alarm_HH = tkinter.IntVar()
-tkinter.Entry(root,textvariable = alarm_HH).grid(row = 9,column = 0)
-alarm_MM = tkinter.IntVar()
-tkinter.Entry(root, textvariable = alarm_MM).grid(row = 9,column = 1)
-alarm_MD = tkinter.IntVar()
-tkinter.Entry(root, textvariable = alarm_MD).grid(row = 9,column = 2)
-alarm_MO = tkinter.IntVar()
-tkinter.Entry(root, textvariable = alarm_MO).grid(row = 9,column = 3)
-alarm_YY = tkinter.IntVar()
-tkinter.Entry(root, textvariable = alarm_YY).grid(row = 9,column = 4)
-def alarms():
+data_HH = tkinter.IntVar()
+tkinter.Entry(root,textvariable = data_HH).grid(row = 9,column = 0)
+data_MM = tkinter.IntVar()
+tkinter.Entry(root, textvariable = data_MM).grid(row = 9,column = 1)
+data_MD = tkinter.IntVar()
+tkinter.Entry(root, textvariable = data_MD).grid(row = 9,column = 2)
+data_MO = tkinter.IntVar()
+tkinter.Entry(root, textvariable = data_MO).grid(row = 9,column = 3)
+data_YY = tkinter.IntVar()
+tkinter.Entry(root, textvariable = data_YY).grid(row = 9,column = 4)
+def window():
     """ Создание объекта класса и запуск функции run() """
-    alarm = Alarm(alarm_HH.get(), alarm_MM.get(), alarm_MD.get(), alarm_MO.get(), alarm_YY.get(),text.get())
-    alarm.start()
+    dataN = DataN(data_HH.get(), data_MM.get(), data_MD.get(), data_MO.get(), data_YY.get(),text.get())
+    dataN.start()
         
-button66 = tkinter.Button(root,text = 'Установить напоминание', command = alarms,bg="white",fg="blue").grid(row =12,column = 2)
+button66 = tkinter.Button(root,text = 'Установить напоминание', command = window,bg="white",fg="blue").grid(row =12,column = 2)
 
 root.mainloop()
+
+
+
