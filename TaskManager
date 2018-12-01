@@ -17,13 +17,13 @@ root.title("TaskManager")
 
 #Создание календаря
 cal_x = calendar.month(2018,12,w = 2, l = 1)
-cal_out = tkinter.Label(root, text=cal_x, font=('courier', 12, 'bold'), bg='lightblue').grid(row = 0,column = 5,rowspan = 7) 
+cal_out = tkinter.Label(root, text=cal_x, font=('courier', 12, 'bold'), bg='lightblue').grid(row = 0,column = 3,rowspan = 7,columnspan = 2) 
 
-tkinter.Label(root, text = 'Выберите день:', borderwidth = 8).grid(row = 0,column = 0)
-tkinter.Label(root, text = 'Выберите месяц:', borderwidth = 8).grid(row = 0,column = 1)
-tkinter.Label(root, text = 'Выберите год:', borderwidth = 8).grid(row =0,column = 2)
-tkinter.Label(root, text = 'Выберите время:', borderwidth = 8).grid(row = 3,column = 0)
-tkinter.Label(root, text = 'Опишите задачу:', borderwidth = 8).grid(row = 4,column = 0)
+tkinter.Label(root, text = 'Выберите день:', borderwidth = 8,fg="green").grid(row = 0,column = 0)
+tkinter.Label(root, text = 'Выберите месяц:', borderwidth = 8,fg="green").grid(row = 0,column = 1)
+tkinter.Label(root, text = 'Выберите год:', borderwidth = 8,fg="green").grid(row =0,column = 2)
+tkinter.Label(root, text = 'Выберите время:', borderwidth = 8,fg="green").grid(row = 3,column = 0)
+tkinter.Label(root, text = 'Опишите задачу:', borderwidth = 8,fg="green").grid(row = 4,column = 0)
       
         
 b = tkinter.StringVar()
@@ -48,7 +48,7 @@ def writer():
         f.writelines(task)
 
 
-button2=tkinter.Button(root,text = 'Создать задачу',command = writer).grid(row = 5,column = 1)
+button2=tkinter.Button(root,text = 'Создать задачу',command = writer,bg="white",fg="green").grid(row = 5,column = 1)
 button3=tkinter.Button(root,text = 'Завершить',command = root.destroy).grid(row = 13,column = 5)
 
 #Чтение из файла и отображение в менеджере задач
@@ -57,7 +57,7 @@ with open('taskу.txt','r') as f:
         k=tkinter.StringVar()
         k.set(lines)
 
-tkinter.Label(root, text = k.get(), borderwidth = 8).grid(row = 7,column = 5)
+tkinter.Label(root, text = k.get(), borderwidth = 8).grid(row = 0,column = 5,rowspan = 10)
 
 
 class Alarm(threading.Thread):
@@ -94,9 +94,9 @@ text =tkinter.StringVar()
 tkinter.Entry(root, textvariable = text).grid(row = 10,column = 2,columnspan = 3)
 
 
-tkinter.Label(root, text = "Установите время:",borderwidth = 8).grid(row = 8,column = 0,columnspan = 2 )
-tkinter.Label(root, text = "Установите дату:" ,borderwidth = 8).grid(row= 8,column= 2,columnspan= 3)
-tkinter.Label(root, text = "О чем нужно напомнить:" ,borderwidth = 8).grid(row= 10,column= 0,columnspan= 2)
+tkinter.Label(root, text = "Установите время:",borderwidth = 8,fg="blue").grid(row = 8,column = 0,columnspan = 2 )
+tkinter.Label(root, text = "Установите дату:" ,borderwidth = 8,fg="blue").grid(row= 8,column= 2,columnspan= 3)
+tkinter.Label(root, text = "О чем нужно напомнить:" ,borderwidth = 8,fg="blue").grid(row= 10,column= 0,columnspan= 2)
 
 alarm_HH = tkinter.IntVar()
 tkinter.Entry(root,textvariable = alarm_HH).grid(row = 9,column = 0)
@@ -113,8 +113,6 @@ def alarms():
     alarm = Alarm(alarm_HH.get(), alarm_MM.get(), alarm_MD.get(), alarm_MO.get(), alarm_YY.get(),text.get())
     alarm.start()
         
-button66 = tkinter.Button(root,text = 'Установить напоминание', command = alarms).grid(row =12,column = 2)
+button66 = tkinter.Button(root,text = 'Установить напоминание', command = alarms,bg="white",fg="blue").grid(row =12,column = 2)
 
 root.mainloop()
-
-
